@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: quiz_master
+  password: quiz_master
+
+development:
+  <<: *default
+  database: quiz_master_development
+
+test:
+  <<: *default
+  database: quiz_master_test

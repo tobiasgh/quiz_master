@@ -1,0 +1,11 @@
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :email, required: true, autofocus: true
+    = f.input :password, required: true
+    = f.input :password_confirmation, required: true
+    = f.input :role, as: :select, collection: User::ROLES, include_blank: false
+  .form-actions
+    = f.button :submit, "Sign up", class: "btn btn-md btn-primary btn-block"
+%hr
+= render "devise/shared/links"

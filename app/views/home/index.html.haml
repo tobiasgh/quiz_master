@@ -1,0 +1,5 @@
+- if user_signed_in?
+  %h1.page-header Quiz Master
+  %p This is the home page for Quiz Master
+- else
+  redirect_to new_user_session_path
