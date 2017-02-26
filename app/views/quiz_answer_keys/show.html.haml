@@ -1,0 +1,67 @@
+%h1.page-header
+  = I18n.t('quiz_answer_key.quiz_answer_key')
+  %small= I18n.t('details')
+  = link_to quiz_answer_keys_path, class: 'btn btn-default' do
+    %span.fa.fa-list
+    = I18n.t('back')
+
+.panel.panel-default
+  .panel-heading
+    = I18n.t('details')
+  .panel-body
+    .row
+      .col-md-8
+        %table.table.table-bordered.table-hover.left-th
+          %tbody
+            %tr
+              %th
+                = I18n.t('quiz_answer_key.title')
+              %td
+                = @quiz_answer_key.title
+            %tr
+              %th
+                = I18n.t('quiz_answer_key.passing_rate')
+              %td
+                = @quiz_answer_key.passing_rate
+            %tr
+              %th
+                = I18n.t('quiz_answer_key.time_limit')
+              %td
+                = @quiz_answer_key.time_limit
+            %tr
+              %th
+                = I18n.t('quiz_answer_key.is_randomized')
+              %td
+                = @quiz_answer_key.is_randomized
+
+.panel.panel-default
+  .panel-heading
+    = I18n.t('quiz_item.quiz_item').pluralize
+  .panel-body
+    - if can? :create, QuizItem
+      .row
+        .col-md-12
+          = link_to url_for(controller: 'quiz_answer_keys', action: 'add_quiz_item', id: @quiz_answer_key.id), method: :put, data: { remote: 'true', "data-toggle": 'modal', "data-target": '#add_quiz_item_modal' }, class: "btn btn-primary", title: I18n.t('quiz_answer_key.add_quiz_item') do
+            %span.fa.fa-plus
+            = I18n.t('quiz_item.new')
+    - if @quiz_items.present?
+      %br
+      %table.table.table-bordered.table-hover
+        %thead
+          %th= I18n.t('quiz_item.question')
+          %th= I18n.t('question_type.question_type')
+          %th= I18n.t('quiz_item.choices')
+          %th= I18n.t('quiz_item.instructions')
+        %tbody
+          - @quiz_items.each do |quiz_item|
+            %tr
+              %td= quiz_item.question
+              %td= quiz_item.question_type.question_type
+              %td= quiz_item.choices.pluck(:content).join(', ')
+              %td= quiz_item.instructions
+    - else
+      .alert.alert-warning
+        %span.fa.fa-exclamation-circle
+        = I18n.t('quiz_answer_key.no_quiz_items')
+
+.modal#add_quiz_item_modal{ tabindex: '-1', role: 'dialog', "aria-labelledby": 'add_quiz_item_modal', "aria-hidden": 'true' }

@@ -1,26 +1,16 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
+  action: "Action"
+  list: "List"
+
+  create: "Create"
+  show: "Show"
+  edit: "Edit"
+  delete: "Delete"
+  cancel: "Cancel"
+  back: "Back"
+
   quiz_master: "Quiz Master"
+  details: "Details"
 
   header:
     quiz_management: "Quiz Management"
@@ -30,3 +20,69 @@ en:
     roles:
       teacher: "Teacher"
       student: "Student"
+
+  quiz_answer_key:
+    new: "New Quiz"
+    add_quiz_item: "Add Quiz Item"
+
+    quiz_answer_key: "Quiz Answer Key"
+    title: "Title"
+    passing_rate: "Passing Rate"
+    time_limit: "Time Limit"
+    is_randomized: "Randomized"
+
+    was_successfully_created: "Quiz was successfully created."
+    was_successfully_updated: "Quiz was successfully updated."
+    was_successfully_destroyed: "Quiz was successfully deleted."
+
+    no_quiz_items: "No quiz items yet."
+
+  quiz_item:
+    new: "Add Quiz Item"
+    add_choice: "Add Choice"
+
+    quiz_item: "Quiz Item"
+    question: "Question"
+    instructions: "Instructions"
+    is_correct: "Correct"
+    choices: "Choices"
+
+    was_successfully_created: "Quiz Item was successfully created."
+
+  question_type:
+    question_type: "Question Type"
+
+    types:
+      select_one: "Select One"
+      multiple_choice: "Multiple Choice"
+      text: "Text"
+
+    validates_uniqueness_of_choice: ""
+
+  choice:
+    choice: "Choice"
+    content: "Content"
+
+  quiz_mode:
+    quiz: "Quiz"
+
+  sEmptyTable: "No data available in table"
+  sInfo: "Showing _START_ to _END_ of _TOTAL_ entries"
+  sInfoEmpty: "Showing 0 to 0 of 0 entries"
+  sInfoFiltered: "(filtered from _MAX_ total entries)"
+  sInfoPostFix: ""
+  sInfoThousands: ","
+  sLengthMenu: "Show _MENU_ entries"
+  sLoadingRecords: "Loading..."
+  sProcessing: "Processing..."
+  sSearch: "Search..."
+  sZeroRecords: "No matching records found"
+  oPaginate: 
+    sFirst: "First"
+    sLast: "Last"
+    sNext: "Next"
+    sPrevious: "Previous"
+  oAria: 
+    sSortAscending: ": activate to sort column ascending"
+    sSortDescending: ": activate to sort column descending"
+  Next: "Next"

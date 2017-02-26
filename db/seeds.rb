@@ -8,6 +8,30 @@ def create_teacher
   teacher.save!
 end
 
+def create_question_types
+  QuestionType.create(
+    question_type: I18n.t('question_type.types.select_one'),
+    min_options: 2,
+    min_answers: 1,
+    max_answers: 1
+  )
+
+  QuestionType.create(
+    question_type: I18n.t('question_type.types.multiple_choice'),
+    min_options: 2,
+    min_answers: 1
+  )
+
+  QuestionType.create(
+    question_type: I18n.t('question_type.types.text'),
+    min_options: 0,
+    max_options: 0,
+    min_answers: 0,
+    max_answers: 0
+  )
+end
+
 if Rails.env.development?
   create_teacher
+  create_question_types
 end

@@ -56,8 +56,15 @@ gem 'haml'
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-sass', '~> 4.7.0'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 gem 'react-rails'
+gem 'jquery-datatables-rails', '~> 3.3.0'
+gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
+gem 'ajax-datatables-rails'
+gem "i18n-js", ">= 3.0.0.rc11"
 
 gem 'devise'
 gem 'cancancan'
@@ -66,3 +73,6 @@ gem 'pg'
 gem 'ar-uuid'
 
 gem 'simple_form'
+gem 'nested_form', github: 'ryanb/nested_form'
+
+gem 'ranked-model'

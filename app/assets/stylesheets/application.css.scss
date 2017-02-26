@@ -20,7 +20,7 @@ body {
 /* ------------------------------- */
 #wrapper {
   width: 100%;
-  padding-top: 50px;
+  padding-top: 140px;
 }
 
 #page-wrapper {
@@ -108,7 +108,7 @@ body {
 #main-navbar .navbar-nav a { color: #fff; text-transform: uppercase; }
 #main-navbar .navbar-nav a:hover { color: #fff; background: #A8A8A8; }
 #main-navbar .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #2B2C74; background-color: #fff;
+  color: #fff; background-color: #A8A8A8;
 }
 #main-navbar .navbar-nav > .open > a, #main-navbar .navbar-nav > .open > a:hover, #main-navbar .navbar-nav > .open > a:focus {
   color: #fff; background-color: #404181;
@@ -210,7 +210,7 @@ body {
 
 /* Login Page */
 .login-panel {
-  margin-top: 30%;
+  margin-top: 10%;
 }
 
 .show-grid [class^="col-"] {
@@ -231,11 +231,12 @@ body {
   background: image-url('logo.png') left center no-repeat; width:370px; height:105px; }
 .fa-caret-down { color:#ccc; }
 
-.btn { background:#ccc;}
-.btn-group-justified .btn { border:1px solid #999; color:#333;}
+.btn { background:#ccc; }
+.btn-group-justified .btn { border:1px solid #999; color:#333; }
 .btn:hover, .btn:focus, .btn:active, .btn-success.active, .open .dropdown-toggle.btn-success {
-  color: #FFF;
-  background-color: #ac248c;
+  color: #fff;
+  border:1px solid #72B0F9;
+  background-color: #72B0F9;
 }
 
 #page-wrapper { margin-top:-30px; margin-bottom:20px; padding-top:0px; }
@@ -275,3 +276,67 @@ body {
 .tab-bg a { color:#ac248c;}
 
 .well-light { background:#fcfcfc;}
+
+.left-th th { background: #fbfbfb; width: 30% ; white-space: nowrap; }
+
+.modal-header {
+  color: #fff;
+  background-color: #A8A8A8;
+}
+
+/* Data table Styling */
+/* ------------------------------- */
+.dataTables_wrapper .dataTables_info {
+   float: right !important;
+   text-align: right !important;
+}
+.dataTables_length{
+  margin-bottom: 0;
+  display: inline;
+  padding-right: 30px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+  padding: 0 !important;
+}
+
+.page-header .btn{
+  float: right;
+  margin-top: 10px;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 10px 0 10px;
+  border-bottom: 2px solid #dddddd;
+}
+
+.dt-row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.dt-row .col-sm-6, .dt-row .col-sm-12, .dt-row .col-sm-4{
+  margin-bottom: 10px;
+}
+
+div.dataTables_info {
+  text-align: right;
+  white-space: normal!important ;
+}
+
+th, td {
+  word-break: normal;
+}
+
+.filter-group { text-align: right; }
+.dataTables_filter { display: inline-table; }
+.clear-filter { display: inline-table; margin: 10px; }
+.dataTables_paginate { text-align: right; }
+.dataTable .clickable { cursor: pointer; }
+.new-button .btn { display: inline!important; }
+
+td.dataTables_empty { text-align: center; }
+
+.action-column { width:110px; }
+.action-column td { text-align:center; }
+.action-column .btn-group { display:block; min-width:80px; margin-left:auto; margin-right:auto; }

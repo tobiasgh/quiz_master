@@ -1,0 +1,25 @@
+.panel.panel-default
+  .panel-heading
+    = I18n.t('details')
+  = simple_form_for @quiz_answer_key do |f|
+    .panel-body
+      .form-inputs
+        .row
+          .col-md-4
+            = f.input :title, label: I18n.t('quiz_answer_key.title')
+        .row
+          .col-md-4
+            = f.input :passing_rate, label: I18n.t('quiz_answer_key.passing_rate')
+        .row
+          .col-md-2
+            = f.input :time_limit, label: I18n.t('quiz_answer_key.time_limit')
+        .row
+          .col-md-2
+            = f.input :is_randomized, label: I18n.t('quiz_answer_key.is_randomized')
+    .panel-footer
+      .form-actions
+        - if @quiz_answer_key.new_record?
+          = f.button :submit, I18n.t('create'), class: 'btn btn-primary'
+        - else
+          = f.button :submit, I18n.t('update'), class: 'btn btn-primary'
+        = link_to I18n.t('cancel'), quiz_answer_keys_path, class: 'btn btn-default'

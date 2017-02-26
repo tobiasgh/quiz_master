@@ -5,8 +5,9 @@
     %title= content_for?(:title) ? yield(:title) : I18n.t('quiz_master')
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : I18n.t('quiz_master')}"}
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
     #wrapper
       = render 'layouts/navigation'
@@ -36,3 +37,8 @@
             .col-lg-12
               = yield
     #footer.text-center &copy; 2017 ghtobias
+
+%script{"type" => "text/javascript"}
+  :plain
+    I18n.defaultLocale = "#{I18n.locale.to_s}";
+    I18n.locale = "#{I18n.locale.to_s}";

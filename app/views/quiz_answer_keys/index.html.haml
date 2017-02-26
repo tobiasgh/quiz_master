@@ -1,0 +1,29 @@
+.row
+  .col-md-12
+    %h1.page-header
+      = I18n.t('quiz_answer_key.quiz_answer_key')
+      %small
+        = I18n.t('list')
+
+- if can? :create, QuizAnswerKey
+  .row
+    .col-md-12
+      .hidden.link-to-new
+        = link_to new_quiz_answer_key_path, class: "btn btn-primary" do
+          %span.fa.fa-list-ol
+          = I18n.t('quiz_answer_key.new')
+
+.row
+  .col-md-12
+    %table.table.table-bordered.table-hover.table-striped.index-table{ id: 'quiz_answer_keys-table', 'data-source': quiz_answer_keys_path(format: :json) }
+      %thead
+        %tr
+          %th
+            = I18n.t('quiz_answer_key.title')
+          %th
+            = I18n.t('quiz_answer_key.passing_rate')
+          %th
+            = I18n.t('quiz_answer_key.time_limit')
+          %th.action-column.no-sort.no-search{ style: "width:10%" }
+            = I18n.t('action')
+      %tbody
