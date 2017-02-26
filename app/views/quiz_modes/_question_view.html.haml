@@ -1,0 +1,45 @@
+.progress
+  - progress.split(' ').each do |p|
+    - if eval(p)
+      .progress-bar.progress-bar-success{ role: 'progressbar', style: "border: 1px solid #fff; width: #{(1.0 / total.to_f) * 100}%" }
+        %span.fa.fa-check
+    - else
+      .progress-bar.progress-bar-danger{ role: 'progressbar', style: "border: 1px solid #fff; width: #{(1.0 / total.to_f) * 100}%" }
+        %span.fa.fa-times
+  .progress-bar.progress-bar-default{ role: 'progressbar', style: "width: #{(1.0 / total.to_f) * 100}%" }
+
+.panel.panel-default
+  - if question
+    .panel-heading
+      %h4
+        - if question
+          = question.instructions
+        %br
+    = simple_form_for :response, url: url_for(controller: 'quiz_modes', action: 'process_answer'), method: :post, remote: true do |f|
+      .panel-body
+        %h2
+          = question.question
+          %h3
+            = f.input :answer, as: :text, label: false
+          = f.input :quiz_id, as: :hidden, input_html: { value: quiz.id }
+          = f.input :question_id, as: :hidden, input_html: { value: question.id }
+          = f.input :item_number, as: :hidden, input_html: { value: (item_number + 1) }
+          = f.input :progress, as: :hidden, input_html: { value: progress }
+        %hr
+        .btn-toolbar
+          .btn-group
+            = f.button :submit, I18n.t('quiz_mode.submit_answer'), data: { disable_with: I18n.t('sProcessing') }, class: 'btn btn-primary submit_button'
+  - else
+    .panel-heading
+      %h4
+    .panel-body
+      %h2
+        = I18n.t('quiz_mode.finished')
+
+%script{"type": "text/javascript"}
+  :plain
+    $('.submit_button').attr('disabled', true);
+
+    $('#response_answer').on('keyup', function() {
+      $('.submit_button').prop('disabled', $(this).val() == "")
+    });

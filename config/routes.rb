@@ -19,9 +19,12 @@ Rails.application.routes.draw do
 
   resources :quiz_items
 
-  resources :quiz_mode do
+  resources :quiz_modes do
     member do
       get :take_quiz
+    end
+    collection do
+      post :process_answer
     end
   end
 end

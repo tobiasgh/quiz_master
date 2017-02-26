@@ -56,7 +56,7 @@
           - @quiz_items.each do |quiz_item|
             %tr
               %td= quiz_item.question
-              %td= quiz_item.question_type.question_type
+              %td= quiz_item.question_type.question_type rescue nil
               %td= quiz_item.choices.pluck(:content).join(', ')
               %td= quiz_item.instructions
     - else

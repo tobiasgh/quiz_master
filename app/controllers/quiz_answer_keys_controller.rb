@@ -30,6 +30,9 @@ class QuizAnswerKeysController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     @quiz_answer_key ||= QuizAnswerKey.find(params[:id])
     respond_to do |format|

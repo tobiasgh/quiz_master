@@ -1,12 +1,12 @@
 jQuery(document).ready(function() {
-  $('#quiz_mode_index-table').dataTable({
-    "dom": '<"top"<"row"<"col-md-6 col-sm-8 col-xs-12 new-button form-group"><"col-md-6 col-sm-4 col-xs-12 form-group filter-group" f <"clear-filter quiz_mode_index-clear-filter">><"col-md-6 col-sm-3 col-xs-12 form-group" l><"col-md-6 col-sm-9 col-xs-12" p>><"row"<"col-sm-12 table-responsive"rt>><"bottom"<"dt-row"<"col-sm-6 deactivate-button"><"col-sm-6 col-xs-12 pull-right" i>>><"clear">',
+  $('#quiz_modes-table').dataTable({
+    "dom": '<"top"<"row"<"col-md-6 col-sm-8 col-xs-12 new-button form-group"><"col-md-6 col-sm-4 col-xs-12 form-group filter-group" f <"clear-filter quiz_modes-clear-filter">><"col-md-6 col-sm-3 col-xs-12 form-group" l><"col-md-6 col-sm-9 col-xs-12" p>><"row"<"col-sm-12 table-responsive"rt>><"bottom"<"dt-row"<"col-sm-6 deactivate-button"><"col-sm-6 col-xs-12 pull-right" i>>><"clear">',
     "order": [[ 0, "asc" ]],
     "stateSave": true,
     "stateDuration": -1,
     "processing": true,
     "serverSide": true,
-    "ajax": $('#quiz_mode_index-table').data('source'),
+    "ajax": $('#quiz_modes-table').data('source'),
     "columnDefs": [ {
       "targets": 'no-sort',
       "orderable": false
@@ -73,9 +73,9 @@ jQuery(document).ready(function() {
   language = I18n.locale
 
   $('div.dataTables_filter input').attr('placeholder', I18n.t('sSearch'));
-  $("div.quiz_mode_index-clear-filter").html("<a href='#' id='quiz_mode_index-clear-filter'>"+'Clear'+"</a>");
-  $('#quiz_mode_index-clear-filter').on('click', function(event){
-    var table = $('#quiz_mode_index-table').DataTable();
+  $("div.quiz_modes-clear-filter").html("<a href='#' id='quiz_modes-clear-filter'>"+'Clear'+"</a>");
+  $('#quiz_modes-clear-filter').on('click', function(event){
+    var table = $('#quiz_modes-table').DataTable();
     table
       .state.clear()
       .order( [ 0, "asc" ] )

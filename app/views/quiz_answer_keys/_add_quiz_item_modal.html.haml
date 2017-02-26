@@ -12,20 +12,12 @@
           = f.input :quiz_answer_key_id, as: :hidden, input_html: { value: @quiz_answer_key.id }
           = f.input :instructions, as: :text, label: I18n.t('quiz_item.instructions')
           = f.input :question, as: :text, label: I18n.t('quiz_item.question')
-          = f.input :question_type_id, label: I18n.t('question_type.question_type'), collection: QuestionType.all, label_method: :question_type, value_method: :id, include_blank: false
           %table.table.table-striped.table-bordered
             = f.simple_fields_for :choices, wrapper: false do |c|
               %tr.fields
                 %td
-                  = c.input :content, as: :text, label: false, placeholder: I18n.t('choice.content')
-                %td
-                  = c.input :is_correct, label: false
-                %td{ style: 'vertical-align: middle;' }
-                  = c.link_to_remove content_tag(:span, nil, class: 'fa fa-trash'), class: 'btn btn-danger no-label'
-              = c.input :_destroy, as: :hidden
-            %tr
-              %td{ colspan: '3' }
-                = f.link_to_add content_tag(:span, nil, class: 'fa fa-plus') + " " + I18n.t('quiz_item.add_choice'), :choices, class: 'btn btn-primary choice-add-row'
+                  = c.input :content, as: :text, label: false, placeholder: I18n.t('choice.answer')
+                = c.input :is_correct, as: :hidden, label: false, input_html: { value: true }
       .modal-footer
         .form-actions
           = button_tag I18n.t('cancel'), class: 'btn btn-default', "data-dismiss": 'modal', "aria-hidden": 'true'
@@ -48,9 +40,5 @@
     });
 
     $('#quiz_item_question').on('keyup', function () {
-      $('.submit_button').prop('disabled', ($(this).val() == ""));
-    });
-
-    $('#quiz_item_question_type_id').on('change', function () {
       $('.submit_button').prop('disabled', ($(this).val() == ""));
     });

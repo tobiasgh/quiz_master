@@ -27,7 +27,7 @@
             %a{ href: quiz_answer_keys_path } 
               %i.fa.fa-question-circle
               = I18n.t('header.quiz_management')
-          %li{ class: active?(['quiz_mode']) }
-            %a{ href: 'quiz_mode#index' }
+          %li{ class: active?(['quiz_modes']) }
+            %a{ href: quiz_modes_path }
               %i.fa.fa-list-ol
               = I18n.t('header.quiz_mode')

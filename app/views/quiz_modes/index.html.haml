@@ -1,0 +1,21 @@
+.row
+  .col-md-12
+    %h1.page-header
+      = I18n.t('quiz_mode.quiz')
+      %small
+        = I18n.t('list')
+
+.row
+  .col-md-12
+    %table.table.table-bordered.table-hover.table-striped.index-table{ id: 'quiz_modes-table', 'data-source': quiz_modes_path(format: :json) }
+      %thead
+        %tr
+          %th
+            = I18n.t('quiz_answer_key.title')
+          %th
+            = I18n.t('quiz_answer_key.passing_rate')
+          %th
+            = I18n.t('quiz_answer_key.time_limit')
+          %th.action-column.no-sort.no-search{ style: "width:10%" }
+            = I18n.t('action')
+      %tbody

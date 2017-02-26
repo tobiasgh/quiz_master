@@ -1,0 +1,34 @@
+%h2.page-header
+  = @quiz.title
+.row
+  #question-container
+    .progress
+      .progress-bar{ "aria-valuemax": "100", "aria-valuemin": "0", "aria-valuenow": "#{((@item_number.to_f + 1) / @total.to_f) * 100}", role: "progressbar", style: "width: #{((@item_number.to_f + 1) / @total.to_f) * 100}%;" }
+
+    .panel.panel-default
+      .panel-heading
+        %h4
+          = @question.instructions
+          %br
+      = simple_form_for :response, url: url_for(controller: 'quiz_modes', action: 'process_answer'), method: :post, remote: true do |f|
+        .panel-body
+          %h2
+            = @question.question
+            %h3
+              = f.input :answer, as: :text, label: false
+            = f.input :quiz_id, as: :hidden, input_html: { value: @quiz.id }
+            = f.input :question_id, as: :hidden, input_html: { value: @question.id }
+            = f.input :item_number, as: :hidden, input_html: { value: @item_number + 1 }
+            = f.input :progress, as: :hidden, input_html: { value: @progress }
+          %hr
+          .btn-toolbar
+            .btn-group
+              = f.button :submit, I18n.t('quiz_mode.submit_answer'), data: { disable_with: I18n.t('sProcessing') }, class: 'btn btn-primary submit_button'
+
+%script{"type": "text/javascript"}
+  :plain
+    $('.submit_button').attr('disabled', true);
+
+    $('#response_answer').on('keyup', function() {
+      $('.submit_button').prop('disabled', $(this).val() == "")
+    });

@@ -14,6 +14,23 @@ class QuizItem < ActiveRecord::Base
   end
 
   def accepted_answers
-    choices.collect { |choice| choice.content.downcase if choice.is_correct }.compact
+    accepted_answers = []
+    correct_answers = choices.collect { |choice| choice.content.downcase if choice.is_correct }.compact
+    correct_answers.each do |ca|
+      accepted_answers << ca
+      accepted_answers += number_to_words(ca)
+    end
+
+    return accepted_answers.compact
+  end
+
+  private
+
+  def number_to_words(string)
+    words = []
+    words << Integer(string).humanize rescue nil
+    words << Float(string).humanize rescue nil
+
+    return words.compact
   end
 end

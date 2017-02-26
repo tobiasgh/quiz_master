@@ -5,9 +5,13 @@ en:
   create: "Create"
   show: "Show"
   edit: "Edit"
+  update: "Update"
   delete: "Delete"
   cancel: "Cancel"
   back: "Back"
+
+  alert:
+    destroy: "Are you sure you want to delete %{object_name}?"
 
   quiz_master: "Quiz Master"
   details: "Details"
@@ -62,9 +66,14 @@ en:
   choice:
     choice: "Choice"
     content: "Content"
+    answer: "Answer"
 
   quiz_mode:
     quiz: "Quiz"
+
+    take_quiz: "Take Quiz"
+    submit_answer: "Submit Answer"
+    finished: "Finished!"
 
   sEmptyTable: "No data available in table"
   sInfo: "Showing _START_ to _END_ of _TOTAL_ entries"

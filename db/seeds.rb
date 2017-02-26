@@ -8,6 +8,16 @@ def create_teacher
   teacher.save!
 end
 
+def create_student
+  student = User.new(
+    email: "student@quizmaster.com",
+    password: "quizmaster",
+    role: I18n.t('user.roles.student')
+  )
+
+  student.save!
+end
+
 def create_question_types
   QuestionType.create(
     question_type: I18n.t('question_type.types.select_one'),
@@ -33,5 +43,6 @@ end
 
 if Rails.env.development?
   create_teacher
+  create_student
   create_question_types
 end
