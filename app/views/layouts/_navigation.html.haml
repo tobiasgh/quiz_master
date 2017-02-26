@@ -23,11 +23,13 @@
     .navbar-header{ style: 'background: #666666; min-width: 100%;' }
       #main-navbar.collapse.navbar-collapse
         %ul.nav.navbar-nav
-          %li{ class: active?(['quiz_answer_keys']) }
-            %a{ href: quiz_answer_keys_path } 
-              %i.fa.fa-question-circle
-              = I18n.t('header.quiz_management')
-          %li{ class: active?(['quiz_modes']) }
-            %a{ href: quiz_modes_path }
-              %i.fa.fa-list-ol
-              = I18n.t('header.quiz_mode')
+          - if can? :index, QuizAnswerKey
+            %li{ class: active?(['quiz_answer_keys']) }
+              %a{ href: quiz_answer_keys_path } 
+                %i.fa.fa-question-circle
+                = I18n.t('header.quiz_management')
+          - if can? :index, :quiz_mode
+            %li{ class: active?(['quiz_modes']) }
+              %a{ href: quiz_modes_path }
+                %i.fa.fa-list-ol
+                = I18n.t('header.quiz_mode')

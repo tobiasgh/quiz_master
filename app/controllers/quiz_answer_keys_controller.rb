@@ -40,7 +40,7 @@ class QuizAnswerKeysController < ApplicationController
         format.html { redirect_to @quiz_answer_key, notice: I18n.t('quiz_answer_key.was_successfully_updated') }
         format.json { render :show, status: :ok, location: @quiz_answer_key }
       else
-        format.html { render :add_quiz_item, formats: [:js] }
+        format.html { render :edit }
         format.json { render json: @quiz_answer_key.errors, status: :unprocessable_entity }
       end
     end
